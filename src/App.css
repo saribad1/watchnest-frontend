@@ -1,0 +1,383 @@
+/* BASE */
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* HEADER — ITS OWN OVERLAY */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 40px;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  height: 26px;
+}
+
+.logo-text {
+  color: #e50914;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* HERO BACKGROUND */
+.hero {
+  min-height: 100vh;
+  background-image: url('./assets/herobackground.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* HERO OVERLAY (CINEMATIC) */
+.hero-overlay {
+  min-height: 100vh;
+  padding-top: 140px; /* space for fixed header */
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.7) 45%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* TEXT */
+.hero h2 {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.primary-btn {
+  background: #e50914;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #e50914;
+  color: #e50914;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* IMAGE PREVIEW */
+.preview {
+  margin-top: 28px;
+}
+
+.preview img {
+  width: 220px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+/* LOADER */
+.loader-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* BLUR BACKGROUND ONLY */
+.page-content.blurred {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #111;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.mood-text {
+  font-size: 24px;
+  margin: 20px 0;
+}
+/* ===========================
+   DAY 5 — NETFLIX STYLE ROWS
+   =========================== */
+
+.recommendations {
+  background-color: #000;
+  padding: 40px;
+}
+
+.recommendations h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* Horizontal scroll row */
+.netflix-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.netflix-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Movie card */
+.netflix-card {
+  min-width: 160px;
+  transition: transform 0.3s ease;
+}
+
+.netflix-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.netflix-card:hover {
+  transform: scale(1.08);
+}
+
+.netflix-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+/* ===========================
+   RECOMMENDATIONS PAGE
+=========================== */
+
+.recommendation-page {
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 60px;
+}
+
+.recommendation-heading {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.recommendation-heading span {
+  color: #e50914;
+}
+
+/* Netflix-style row */
+.netflix-row {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+/* Movie cards */
+.netflix-card {
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.netflix-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.netflix-card p {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  color: #ccc;
+}
+
+.netflix-card:hover {
+  transform: scale(1.08);
+}
+/* DASHBOARD */
+.dashboard {
+  padding: 40px;
+  background: #000;
+  min-height: 100vh;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.row-title {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.row-posters {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.poster-card {
+  min-width: 160px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.poster-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.poster-card:hover {
+  transform: scale(1.08);
+}
+
+.poster-card p {
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* PLAYER */
+.player-page {
+  background: black;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.player-container {
+  margin-top: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fake-video {
+  height: 480px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border-radius: 8px;
+}
+
+.player-controls {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 35%;
+  height: 100%;
+  background: red;
+}
+
+.controls {
+  margin-top: 12px;
+  font-size: 22px;
+  text-align: center;
+}
+.logout-btn {
+  margin-left: auto;
+  margin-right: 30px;
+  background-color: #e50914;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}

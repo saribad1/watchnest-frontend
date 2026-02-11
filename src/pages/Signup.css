@@ -1,0 +1,58 @@
+.second-page {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* Main left section on black background */
+.left-section {
+  width: 50%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo slash styling */
+.logo-slash {
+  font-size: 80px;
+  color: red;
+  margin-bottom: 40px;
+}
+
+/* Registration box */
+.register-box {
+  background-color: red;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input labels */
+.register-box label {
+  color: white;
+  font-size: 14px;
+}
+
+/* Input fields */
+.register-box input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Register button */
+.register-box button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
