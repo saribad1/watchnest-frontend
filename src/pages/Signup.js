@@ -15,7 +15,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://watchnest-backend-production.up.railway.app/api/register",
         {
           name: name,
