@@ -6,55 +6,48 @@ const MOVIES_BY_MOOD = {
   "Happy 😊": [
     {
       title: "The Intern",
-      poster: "https://image.tmdb.org/t/p/w300/9sVtYh2b2H3m7Xw4Z5qk5PZkz9Y.jpg",
+      poster: require("./assets/intern.jpg"),
     },
     {
       title: "Yes Man",
-      poster: "https://image.tmdb.org/t/p/w300/jz7r7ZQ8m7jXKpGkzZzJ5r2gYFZ.jpg",
+      poster: require("./assets/yesman.jpg"),
     },
     {
       title: "Paddington",
-      poster: "https://image.tmdb.org/t/p/w300/wlUuZ0Yp7l6pE6g6zF6k5dE5XXA.jpg",
+      poster: require("./assets/padd.jpg"),
     },
   ],
 
   "Sad 😔": [
     {
       title: "The Pursuit of Happyness",
-      poster:
-        "https://image.tmdb.org/t/p/w300/f6l9rghSHORKWluruUGJhaKAiyY.jpg",
+      poster: require("./assets/pursuit.jpg"),
     },
     {
       title: "Forrest Gump",
-      poster:
-        "https://image.tmdb.org/t/p/w300/saHP97rTPS5eLmrLQEcaNmKrsF1.jpg",
+      poster: require("./assets/forest.jpg"),
     },
     {
       title: "A Beautiful Mind",
-      poster:
-        "https://image.tmdb.org/t/p/w300/zwzWCmH7205C9NA0jpqW5Zjya8.jpg",
+      poster: require("./assets/beautifulmind.jpg"),
     },
   ],
 
   "Neutral 😐": [
     {
       title: "Inception",
-      poster:
-        "https://image.tmdb.org/t/p/w300/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+      poster: "https://m.media-amazon.com/images/I/91Rc8cAmnAL._AC_SY679_.jpg",
     },
     {
       title: "Interstellar",
-      poster:
-        "https://image.tmdb.org/t/p/w300/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      poster: "https://m.media-amazon.com/images/I/71yJ5oI6CkL._AC_SY679_.jpg",
     },
     {
       title: "The Social Network",
-      poster:
-        "https://image.tmdb.org/t/p/w300/n0ybibhJtQ5iCq1psErtcnNx.jpg",
+      poster: "https://m.media-amazon.com/images/I/81D+KJkOZDL._AC_SY679_.jpg",
     },
   ],
 };
-
 export default function Recommendations({ mood }) {
   const navigate = useNavigate();
 
@@ -89,8 +82,7 @@ export default function Recommendations({ mood }) {
       <div style={{ textAlign: "center", marginTop: "40px" }}>
         <button
           className="primary-btn"
-          onClick={() => navigate("/dashboard")
-          }
+          onClick={() => navigate("/dashboard")}
         >
           Take Me Home
         </button>

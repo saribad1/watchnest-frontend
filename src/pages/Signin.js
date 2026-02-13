@@ -42,11 +42,22 @@ localStorage.setItem("subscribed", "true"); // ADD THIS
     }
   };
 
-  return (
-    <div className="second-page">
-      <div className="left-section"></div>
+ return (
+  <div
+    className="signin-page"
+    style={{
+      backgroundImage: `url(${require("../assets/photo2.jpg")})`,
+    }}
+  >
+    <div className="signin-overlay">
+      <form className="signin-card" onSubmit={handleSubmit}>
+        
+        <img
+          src={require("../assets/watchnestlogo.png")}
+          alt="WatchNest"
+          className="signin-logo"
+        />
 
-      <form className="register-box" onSubmit={handleSubmit}>
         <label>Email</label>
         <input
           type="email"
@@ -65,12 +76,15 @@ localStorage.setItem("subscribed", "true"); // ADD THIS
           required
         />
 
-        <button type="submit">Sign In</button>
-      </form>
+        <button type="submit" className="signin-btn">
+          Sign In
+        </button>
 
-      <div className="right-section"></div>
+      </form>
     </div>
-  );
+  </div>
+);
+ 
 }
 
 export default Signin;

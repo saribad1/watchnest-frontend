@@ -107,28 +107,49 @@ function App() {
     await faceMeshRef.current.send({ image: canvas });
   };
 
-  return (
-    <div className="app">
+  /* =========================================
+     🔥 PLAYER FULLSCREEN RENDER FIX (LOCKED)
+  ========================================= */
+
+  if (location.pathname === "/player") {
+    return (
+      <Routes>
+        <Route
+          path="/player"
+          element={
+            <ProtectedRoute>
+              <Player />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    );
+  }
+
+  /* ========================================= */
+
+    return (
+    <div key={location.pathname} className="app page-transition">
 
       {/* HEADER */}
       <header className="header">
-  <div className="brand">
-    <img src={logo} alt="WatchNest logo" className="brand-logo" />
-    <h1 className="logo-text">WatchNest</h1>
-  </div>
+        <div className="brand">
+          <img src={logo} alt="WatchNest logo" className="brand-logo" />
+          <h1 className="logo-text">WatchNest</h1>
+        </div>
 
-  {localStorage.getItem("isLoggedIn") === "true" && (
-    <button
-      className="logout-btn"
-      onClick={() => {
-        localStorage.clear();
-        navigate("/signin");
-      }}
-    >
-      Logout
-    </button>
-  )}
-</header>
+        {localStorage.getItem("isLoggedIn") === "true" && (
+          <button
+            className="logout-btn"
+            onClick={() => {
+              localStorage.clear();
+              navigate("/signin");
+            }}
+          >
+            Logout
+          </button>
+        )}
+      </header>
 
       <Routes>
 
@@ -147,24 +168,36 @@ function App() {
           }
         />
 
-        {/* DETECT */}
+        {/* DETECT — UI FIXED ONLY */}
         <Route
           path="/detect"
           element={
             <ProtectedRoute requireSubscription={true}>
               <div className={`page-content ${showModal ? 'blurred' : ''}`}>
                 <main className="hero">
-                  <div className="hero-overlay">
+                  <div className="hero-overlay detect-container">
 
-                    <h2 className="detect-title">Upload Your Selfie</h2>
+                    <h2 className="detect-title">Detect your mood</h2>
+                    <p className="detect-subtitle">
+                      Upload a selfie and let AI understand your emotions.
+                    </p>
 
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                    />
+                    <label className="upload-btn">
+                      Upload Selfie
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        hidden
+                      />
+                    </label>
 
-                    {loading && <p>Detecting mood...</p>}
+                    {loading && (
+                      <div className="loader-container">
+                        <div className="loader"></div>
+                        <p>Analyzing mood...</p>
+                      </div>
+                    )}
 
                     {selectedImage && (
                       <>
@@ -205,16 +238,6 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* PLAYER */}
-        <Route
-          path="/player"
-          element={
-            <ProtectedRoute>
-              <Player />
             </ProtectedRoute>
           }
         />

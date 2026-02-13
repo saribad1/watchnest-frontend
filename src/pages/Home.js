@@ -33,19 +33,22 @@ function Home() {
         <h2>WatchNest, a hub for movies and shows</h2>
         <p>Watch shows personalized to your day-to-day mood.</p>
 
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Ready to register? Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <form onSubmit={handleSubmit} className="hero-form">
 
-          <button type="submit" className="primary-btn">
-            Submit
-          </button>
-        </form>
+  <input
+    type="email"
+    placeholder="Ready to register? Enter your email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+    className="hero-input"
+  />
+
+  <button type="submit" className="hero-submit">
+    Submit
+  </button>
+
+</form>
       </div>
     </div>
   );

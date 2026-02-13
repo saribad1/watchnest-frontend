@@ -41,9 +41,11 @@ function Signup() {
     }
   };
 
-  return (
-    <div className="second-page">
-      <div className="left-section"></div>
+ return (
+  <div className="second-page">
+    {/* LEFT SIDE */}
+    <div className="left-section">
+      <div className="logo-slash">//</div>
 
       <form className="register-box" onSubmit={handleSubmit}>
         <label>Name</label>
@@ -84,10 +86,12 @@ function Signup() {
 
         <button type="submit">Register</button>
       </form>
-
-      <div className="right-section"></div>
     </div>
-  );
+
+    {/* RIGHT SIDE */}
+    <div className="right-section"></div>
+  </div>
+);
 }
 
 export default Signup;

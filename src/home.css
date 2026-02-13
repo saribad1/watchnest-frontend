@@ -1,76 +1,131 @@
-.home-header {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  z-index: 10;
-}
+
+/* ================================
+   HOME PAGE STYLES
+   ================================ */
+
+/* ===== HERO SECTION ===== */
 
 .hero {
+  min-height: 100vh;
   background-image: url('./assets/photo1.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  color: white;
   position: relative;
-  font-family: sans-serif;
-}
-
-/* Navbar / Header */
-.navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;         /* full-width black header */
-  padding: 20px 40px;
+  flex-direction: column;
 }
 
-/* Logo container (no need for background now) */
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo size */
-.logo {
-  height: 60px;
-}
-
-/* Sign Up button */
-.signup-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Center Overlay */
-.overlay {
-  text-align: center;
+/* Top right sign in button container */
+/* Top right button row */
+.home-header {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 8px;
+  top: 30px;
+  right: 60px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* Register Form */
-.register-form input {
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: none;
+/* ===== HERO OVERLAY ===== */
+
+.hero-overlay {
+  min-height: 60vh;
+  padding-top: 18px;   /* push content lower */
+  padding-bottom: 50px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.85)
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;   /* IMPORTANT */
+  text-align: center;
 }
 
-.register-form button {
-  padding: 10px 20px;
-  background-color: black;
-  color: white;
+/* ===== HEADINGS ===== */
+
+.hero-overlay h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  max-width: 900px;
+}
+
+.hero-overlay p {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* ====================================
+   HERO EMAIL BOX — FIGMA MATCH FIX
+   ==================================== */
+
+.hero-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 20px;
+}
+
+/* Input field */
+.hero-input {
+  width: 420px;
+  padding: 16px 18px;
+  border-radius: 8px 0 0 8px;
   border: none;
-  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+}
+
+/* Placeholder */
+.hero-input::placeholder {
+  color: #666;
+}
+
+/* Submit button */
+.hero-submit {
+  padding: 16px 26px;
+  border-radius: 0 8px 8px 0;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  background: #e50914;
+  color: #fff;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.hero-submit:hover {
+  background: #f6121d;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .hero-overlay h2 {
+    font-size: 32px;
+  }
+
+  .hero-overlay p {
+    font-size: 16px;
+  }
+
+  .hero-input {
+    width: 240px;
+    font-size: 14px;
+  }
+
+  .hero-submit {
+    padding: 14px 18px;
+    font-size: 14px;
+  }
 }

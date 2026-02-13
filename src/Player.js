@@ -1,30 +1,37 @@
-import { useNavigate } from 'react-router-dom';
-import './App.css';
+import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import "./Player.css";
 
 export default function Player() {
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   return (
     <div className="player-page">
-      <button className="back-btn" onClick={() => navigate(-1)}>
+
+      <button
+        className="back-btn"
+        onClick={() => navigate(-1)}
+      >
         ← Back
       </button>
 
-      <div className="player-container">
-        <div className="fake-video">
-          <p>▶ Playing: The Intern (Demo)</p>
-        </div>
-
-        <div className="player-controls">
-          <div className="progress-bar">
-            <div className="progress"></div>
-          </div>
-
-          <div className="controls">
-            ⏮️ ⏯️ ⏭️ 🔊 ⚙️
-          </div>
-        </div>
+      <div className="player-wrapper">
+        <video
+          ref={videoRef}
+          className="player-video"
+          controls
+        >
+          <source src="/videos/inception.mp4" type="video/mp4" />
+        </video>
       </div>
+
     </div>
   );
 }

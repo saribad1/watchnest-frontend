@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import "./Subscription.css";
 function Subscription() {
   const navigate = useNavigate();
 
