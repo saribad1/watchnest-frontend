@@ -45,7 +45,7 @@ function Signup() {
   <div className="second-page">
     {/* LEFT SIDE */}
     <div className="left-section">
-      <div className="logo-slash">//</div>
+      <div className="logo-slash"> {'//'}</div>
 
       <form className="register-box" onSubmit={handleSubmit}>
         <label>Name</label>
